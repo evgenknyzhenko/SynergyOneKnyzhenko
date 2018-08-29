@@ -21,9 +21,8 @@ public class Customer {
     @Column(name = "IDENTIFICATION_NUMBER")
     private Long identificationNumber;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
-
     public Long getId() {
         return id;
     }
