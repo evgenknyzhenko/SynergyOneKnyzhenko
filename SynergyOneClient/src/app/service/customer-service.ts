@@ -11,4 +11,9 @@ export class CustomerService {
     return this.http.get<Array<Customer>>(
       'http://localhost:8080/customers',{observe: 'body'});
   }
+
+  getCustomerById(id: string): Observable<Customer> {
+    return this.http.get<Customer>(
+      'http://localhost:8080/customer/'.concat(id),{observe: 'body'});
+  }
 }

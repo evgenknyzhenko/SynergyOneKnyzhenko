@@ -9,6 +9,7 @@ import {CustomerService} from "../service/customer-service";
 })
 export class CustomersComponent implements OnInit {
   customers: Array<Customer> = [];
+  selectedCustomer: Customer;
 
   constructor(private customerService: CustomerService) { }
 
@@ -22,5 +23,9 @@ export class CustomersComponent implements OnInit {
         resp => this.customers = resp,
         err => console.log('Customers were not read from database')
       );
+  }
+
+  onSelectCustomer(customer: Customer) {
+    this.selectedCustomer = customer;
   }
 }

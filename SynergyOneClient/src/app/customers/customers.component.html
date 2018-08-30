@@ -3,5 +3,5 @@
 </p>
 
 <div *ngFor="let customer of customers">
-  {{customer.firstName}}
+  <a routerLink="/customer/{{customer.id}}" (click)="onSelectCustomer(customer)">{{customer.firstName}}</a>
 </div>
