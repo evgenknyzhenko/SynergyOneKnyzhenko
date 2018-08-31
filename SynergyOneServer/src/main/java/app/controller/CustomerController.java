@@ -30,15 +30,14 @@ public class CustomerController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/addCustomers", method = RequestMethod.POST)
     public Customer addCustomer(@RequestBody Customer customer) {
-        System.out.println(customer.getFirstName());
         return customerService.addCustomer(customer);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/editCustomer", method = RequestMethod.POST)
+    @RequestMapping(path = "/editCustomer", method = RequestMethod.PUT)
     public Customer editCustomer(@RequestBody Customer customer) {
         System.out.println(customer.getFirstName() + "  " + customer.getId());
-        return null;
+        return customerService.editCustomer(customer);
     }
 
 }

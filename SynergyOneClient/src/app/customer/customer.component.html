@@ -1,20 +1,20 @@
 <h3>Customer details</h3>
 
-<button (click)="onSelectEditCustomer()">Edit customer</button>
-<div *ngIf="customerForEdit">
+<button (click)="isEdit=true">Edit customer</button>
+<div *ngIf="isEdit">
   First name:<input [(ngModel)]="customer.firstName"><br/>
   Last name:<input [(ngModel)]="customer.lastName"><br/>
   Birth date:<input [(ngModel)]="customer.birthDate"><br/>
   Sex:<input [(ngModel)]="customer.sex"><br/>
   Identification number:<input [(ngModel)]="customer.identificationNumber"><br/>
-  <button type="submit" (click)="EditCustomer()" routerLink="/customers">Add</button>
+  <button type="submit" (click)="EditCustomer()" routerLink="/customers">Edit</button>
 </div>
 
-<h5>First name: qq</h5>
-<!--<h5>Last name: {{customer.lastName}}</h5>
+<h5>First name: {{customer.firstName}}</h5>
+<h5>Last name: {{customer.lastName}}</h5>
 <h5>Birth date: {{customer.birthDate}}</h5>
 <h5>Sex: {{customer.sex}}</h5>
-<h5>Identification number: {{customer.identificationNumber}}</h5>-->
+<h5>Identification number: {{customer.identificationNumber}}</h5>
 
 
 

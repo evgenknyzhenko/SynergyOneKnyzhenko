@@ -10,7 +10,9 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CustomerComponent implements OnInit {
   customer: Customer;
-  customerForEdit: Customer;
+  //customerForEdit: Customer;
+  isEdit: boolean = false;
+
 
 
   constructor(private customerService: CustomerService, private route: ActivatedRoute) { }
@@ -28,14 +30,15 @@ export class CustomerComponent implements OnInit {
       );
   }
 
-  onSelectEditCustomer() {
+  /*onSelectEditCustomer() {
     this.customerForEdit = this.customer;
-  }
+  }*/
 
-  EditCustomer() {
+  EditCustomer(): void {
     this.customerService.editCustomer(this.customer)
       .subscribe(
-
+        resp => this.customer = new Customer(),
+        err => console.log('Customer was not edit')
       );
   }
 }
