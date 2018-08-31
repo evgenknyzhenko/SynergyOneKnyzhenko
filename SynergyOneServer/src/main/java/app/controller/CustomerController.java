@@ -5,6 +5,7 @@ import app.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +22,23 @@ public class CustomerController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(path = "/customer/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/customers/{id}", method = RequestMethod.GET)
     public Customer getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/addCustomers", method = RequestMethod.POST)
+    public Customer addCustomer(@RequestBody Customer customer) {
+        System.out.println(customer.getFirstName());
+        return customerService.addCustomer(customer);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/editCustomer", method = RequestMethod.POST)
+    public Customer editCustomer(@RequestBody Customer customer) {
+        System.out.println(customer.getFirstName() + "  " + customer.getId());
+        return null;
+    }
+
 }

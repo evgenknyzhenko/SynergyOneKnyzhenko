@@ -2,6 +2,17 @@
   customers works!
 </p>
 
+
+<button (click)="isAdd=true">Add customer</button>
+<div *ngIf="isAdd==true">
+  First name:<input [(ngModel)]="addCustomer.firstName" placeholder="name"><br/>
+  Last name:<input [(ngModel)]="addCustomer.lastName"><br/>
+  Birth date:<input [(ngModel)]="addCustomer.birthDate"><br/>
+  Sex:<input [(ngModel)]="addCustomer.sex"><br/>
+  Identification number:<input [(ngModel)]="addCustomer.identificationNumber"><br/>
+  <button type="submit" (click)="AddNewCustomer()" onclick="location.href='/customers'">Add</button>
+</div>
+
 <div *ngFor="let customer of customers">
-  <a routerLink="/customer/{{customer.id}}" (click)="onSelectCustomer(customer)">{{customer.firstName}}</a>
+  <a routerLink="/customers/{{customer.id}}">{{customer.firstName}}</a>
 </div>

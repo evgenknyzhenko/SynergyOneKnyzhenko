@@ -8,12 +8,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { OrdersComponent } from './orders/orders.component';
 import {CustomerComponent} from "./customer/customer.component";
+import {CustomerService} from "./service/customer-service";
 
 const appRoutes: Routes = [
   {path: 'customers', component: CustomersComponent},
   {path: 'app', component: AppComponent},
   {path: 'orders', component: OrdersComponent},
-  {path: 'customer/:id', component: CustomerComponent}
+  {path: 'customers/:id', component: CustomerComponent}
 ];
 
 @NgModule({

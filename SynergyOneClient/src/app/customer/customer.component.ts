@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from "../model/customer";
-import {CustomersComponent} from "../customers/customers.component";
-import {Input} from "@angular/compiler/src/core";
 import {CustomerService} from "../service/customer-service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -11,7 +9,8 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  customer: Customer = new Customer();
+  customer: Customer;
+  customerForEdit: Customer;
 
 
   constructor(private customerService: CustomerService, private route: ActivatedRoute) { }
@@ -26,6 +25,17 @@ export class CustomerComponent implements OnInit {
       .subscribe(
         resp => this.customer = resp,
         err => console.log('Customer was not read from database')
+      );
+  }
+
+  onSelectEditCustomer() {
+    this.customerForEdit = this.customer;
+  }
+
+  EditCustomer() {
+    this.customerService.editCustomer(this.customer)
+      .subscribe(
+
       );
   }
 }

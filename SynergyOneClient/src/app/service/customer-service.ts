@@ -14,6 +14,14 @@ export class CustomerService {
 
   getCustomerById(id: string): Observable<Customer> {
     return this.http.get<Customer>(
-      'http://localhost:8080/customer/'.concat(id),{observe: 'body'});
+      'http://localhost:8080/customers/'.concat(id),{observe: 'body'});
+  }
+
+  addNewCustomer(addCustomer: Customer): Observable<Customer> {
+    return this.http.post('http://localhost:8080/addCustomers', addCustomer);
+  }
+
+  editCustomer(customer: Customer): Observable<Customer> {
+    return this.http.post('http://localhost:8080/editCustomer', customer);
   }
 }
