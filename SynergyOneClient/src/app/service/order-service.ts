@@ -13,4 +13,11 @@ export class OrderService {
       'http://localhost:8080/orders',{observe: 'body'}
     );
   }
+
+
+  getOrdersByCustomerId(id: string): Observable<Array<Order>> {
+    return this.http.get<Array<Order>>(
+      'http://localhost:8080/customers/'.concat(id).concat('/orders'),{observe: 'body'}
+    );
+  }
 }

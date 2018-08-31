@@ -5,8 +5,6 @@ import app.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,7 +34,6 @@ public class CustomerController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/editCustomer", method = RequestMethod.PUT)
     public Customer editCustomer(@RequestBody Customer customer) {
-        System.out.println(customer.getFirstName() + "  " + customer.getId());
         return customerService.editCustomer(customer);
     }
 

@@ -10,12 +10,15 @@ import { OrdersComponent } from './orders/orders.component';
 import {CustomerComponent} from "./customer/customer.component";
 import {CustomerService} from "./service/customer-service";
 import {OrderService} from "./service/order-service";
+import { OrdersOfCustomerComponent } from './orders-of-customer/orders-of-customer.component';
 
 const appRoutes: Routes = [
   {path: 'customers', component: CustomersComponent},
   {path: 'app', component: AppComponent},
   {path: 'customers/:id', component: CustomerComponent},
   {path: 'orders', component: OrdersComponent},
+  {path: 'customers/:id/orders', component:OrdersOfCustomerComponent}
+
 
 ];
 
@@ -24,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     CustomersComponent,
     OrdersComponent,
-    CustomerComponent
+    CustomerComponent,
+    OrdersOfCustomerComponent
   ],
   imports: [
     BrowserModule,

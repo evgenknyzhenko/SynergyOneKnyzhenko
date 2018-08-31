@@ -3,10 +3,7 @@ package app.controller;
 import app.model.Order;
 import app.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +16,12 @@ public class OrderController {
     @RequestMapping(path = "/orders", method = RequestMethod.GET)
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/customers/{id}/orders", method = RequestMethod.GET)
+    public List<Order> getOrdersByCustomerId(@PathVariable Long id) {
+        return orderService.getOrdersByCustomerId(id);
     }
 }
 

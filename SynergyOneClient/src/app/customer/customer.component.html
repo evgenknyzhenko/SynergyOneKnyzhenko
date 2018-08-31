@@ -1,5 +1,9 @@
 <h3>Customer details</h3>
 
+<p>
+  <a routerLink="/customers/{{customer.id}}/orders">Orders of customer</a><br/>
+</p>
+
 <button (click)="isEdit=true">Edit customer</button>
 <div *ngIf="isEdit">
   First name:<input [(ngModel)]="customer.firstName"><br/>
@@ -15,6 +19,8 @@
 <h5>Birth date: {{customer.birthDate}}</h5>
 <h5>Sex: {{customer.sex}}</h5>
 <h5>Identification number: {{customer.identificationNumber}}</h5>
+
+
 
 
 
