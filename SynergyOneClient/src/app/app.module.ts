@@ -9,12 +9,14 @@ import {FormsModule} from "@angular/forms";
 import { OrdersComponent } from './orders/orders.component';
 import {CustomerComponent} from "./customer/customer.component";
 import {CustomerService} from "./service/customer-service";
+import {OrderService} from "./service/order-service";
 
 const appRoutes: Routes = [
   {path: 'customers', component: CustomersComponent},
   {path: 'app', component: AppComponent},
+  {path: 'customers/:id', component: CustomerComponent},
   {path: 'orders', component: OrdersComponent},
-  {path: 'customers/:id', component: CustomerComponent}
+
 ];
 
 @NgModule({
@@ -30,7 +32,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CustomerService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

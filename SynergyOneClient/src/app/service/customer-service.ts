@@ -7,6 +7,7 @@ import {Injectable} from "@angular/core";
 export class CustomerService {
 
   constructor(private http: HttpClient) {}
+
   getAllCustomers(): Observable<Array<Customer>> {
     return this.http.get<Array<Customer>>(
       'http://localhost:8080/customers',{observe: 'body'});

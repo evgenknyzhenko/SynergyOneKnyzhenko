@@ -10,7 +10,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name= "DATE")
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @Column(name = "DATE")
     private String date;
     @Column(name = "STATUS")
     private String status;
@@ -30,6 +32,14 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getDate() {
