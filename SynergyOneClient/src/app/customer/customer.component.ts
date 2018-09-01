@@ -10,7 +10,6 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CustomerComponent implements OnInit {
   customer: Customer;
-  //customerForEdit: Customer;
   isEdit: boolean = false;
 
 
@@ -35,7 +34,7 @@ export class CustomerComponent implements OnInit {
   }*/
 
   EditCustomer(): void {
-    this.customerService.editCustomer(this.customer)
+    this.customerService.editCustomer(this.customer, this.route.snapshot.paramMap.get('id'))
       .subscribe(
         resp => this.customer = new Customer(),
         err => console.log('Customer was not edit')

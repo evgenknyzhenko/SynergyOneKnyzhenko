@@ -10,7 +10,7 @@ import {CustomerService} from "../service/customer-service";
 export class CustomersComponent implements OnInit {
   customers: Array<Customer> = [];
   selectedCustomer: Customer;
-  isAdd: boolean = false;
+  isAddCustomer: boolean = false;
   addCustomer: Customer;
 
   constructor(private customerService: CustomerService) { }
@@ -35,8 +35,8 @@ export class CustomersComponent implements OnInit {
   AddNewCustomer(): void {
     this.customerService.addNewCustomer(this.addCustomer)
       .subscribe(
-        resp =>{this.addCustomer = new Customer()},
-        err =>{console.log('Customer can not add to database')}
+        resp =>this.addCustomer = new Customer(),
+        err =>console.log('Customer can not add to database')
       );
   }
 }

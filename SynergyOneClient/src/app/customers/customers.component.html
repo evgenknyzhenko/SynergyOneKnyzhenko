@@ -1,10 +1,7 @@
-<p>
-  customers works!
-</p>
+<h3>All customers</h3>
 
-
-<button (click)="isAdd=true">Add customer</button>
-<div *ngIf="isAdd==true">
+<button (click)="isAddCustomer=true">Add customer</button>
+<div *ngIf="isAddCustomer==true">
   First name:<input [(ngModel)]="addCustomer.firstName" placeholder="name"><br/>
   Last name:<input [(ngModel)]="addCustomer.lastName"><br/>
   Birth date:<input [(ngModel)]="addCustomer.birthDate"><br/>

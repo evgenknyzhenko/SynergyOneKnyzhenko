@@ -10,11 +10,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class OrdersOfCustomerComponent implements OnInit {
   customerOrders: Array<Order> = [];
+  isAddOrder: boolean;
+  addOrder: Order;
 
   constructor(private orderService: OrderService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getOrdersByCustomerId(this.route.snapshot.paramMap.get('id'));
+    this.addOrder = new Order();
   }
 
   private getOrdersByCustomerId(id: string): void {
@@ -22,6 +25,14 @@ export class OrdersOfCustomerComponent implements OnInit {
       .subscribe(
         resp => this.customerOrders = resp,
         err => console.log('Customer orders were not red from database')
+      );
+  }
+
+  addNewOrder(): void {
+    this.orderService.addNewOrder(this.addOrder, this.route.snapshot.paramMap.get('id'))
+      .subscribe(
+        resp => this.addOrder = new Order(),
+        err=> console.log('Order was nod add to database')
       );
   }
 }

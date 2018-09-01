@@ -23,6 +23,14 @@ public class OrderController {
     public List<Order> getOrdersByCustomerId(@PathVariable Long id) {
         return orderService.getOrdersByCustomerId(id);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(path = "/customers/{id}/orders", method = RequestMethod.POST)
+    public Order addOrderByCustomerId(@PathVariable Long id, @RequestBody Order order) {
+        System.out.println(order.getDescription());
+        System.out.println(id);
+        return null;
+    }
 }
 
 

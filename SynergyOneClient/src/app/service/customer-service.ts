@@ -19,10 +19,10 @@ export class CustomerService {
   }
 
   addNewCustomer(addCustomer: Customer): Observable<Customer> {
-    return this.http.post('http://localhost:8080/addCustomers', addCustomer);
+    return this.http.post('http://localhost:8080/customers', addCustomer);
   }
 
-  editCustomer(customer: Customer): Observable<Customer> {
-    return this.http.put('http://localhost:8080/editCustomer', customer);
+  editCustomer(customer: Customer, id: string): Observable<Customer> {
+    return this.http.put('http://localhost:8080/customers/'.concat(id), customer);
   }
 }

@@ -1,5 +1,19 @@
+<h3>Orders:</h3>
 
-  <h2>Orders:</h2>
+<p>
+  <button type="submit" (click)="isAddOrder=true">Add new order</button>
+</p>
+<div *ngIf="isAddOrder">
+  Description:<input [(ngModel)]="addOrder.description" placeholder="name"><br/>
+  Date:<input [(ngModel)]="addOrder.date"><br/>
+  Price:<input [(ngModel)]="addOrder.price"><br/>
+  Currency:<input [(ngModel)]="addOrder.currency"><br/>
+
+  <button type="submit" (click)="addNewOrder()">Add new order</button>
+</div>
+
+
+
 <div *ngFor="let order of customerOrders">
   {{order.description}}
 </div>

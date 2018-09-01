@@ -20,4 +20,9 @@ export class OrderService {
       'http://localhost:8080/customers/'.concat(id).concat('/orders'),{observe: 'body'}
     );
   }
+
+  addNewOrder(addOrder: Order, id: string): Observable<Order> {
+    return this.http.post(
+      'http://localhost:8080/customers/'.concat(id).concat('/orders'), addOrder);
+  }
 }
