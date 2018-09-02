@@ -23,6 +23,7 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
+
     public Long getId() {
         return id;
     }

@@ -1,15 +1,19 @@
-<h3>Customer details</h3>
+<h3>Customer details:</h3>
 
-<p>
+<h4>
   <a routerLink="/customers/{{customer.id}}/orders">Orders of customer</a><br/>
-</p>
+</h4>
 
-<button (click)="isEdit=true">Edit customer</button>
+<button (click)="isEdit=true" (dblclick)="isEdit=false">Edit customer</button>
 <div *ngIf="isEdit">
   First name:<input [(ngModel)]="customer.firstName"><br/>
   Last name:<input [(ngModel)]="customer.lastName"><br/>
   Birth date:<input [(ngModel)]="customer.birthDate"><br/>
-  Sex:<input [(ngModel)]="customer.sex"><br/>
+  Sex:
+  <select [(ngModel)]="customer.sex">
+  <option>Mr</option>
+  <option>Ms</option>
+  </select><br/>
   Identification number:<input [(ngModel)]="customer.identificationNumber"><br/>
   <button type="submit" (click)="EditCustomer()" routerLink="/customers">Edit</button>
 </div>
@@ -19,9 +23,3 @@
 <h5>Birth date: {{customer.birthDate}}</h5>
 <h5>Sex: {{customer.sex}}</h5>
 <h5>Identification number: {{customer.identificationNumber}}</h5>
-
-
-
-
-
-

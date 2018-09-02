@@ -21,4 +21,19 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getOrdersByCustomerId(Long id) {
         return orderRepository.findOrdersByCustomer_Id(id);
     }
+
+    @Override
+    public Order addOrderByCustomerId(Order order) {
+        return orderRepository.save(order);
+    }
+
+    @Override
+    public Order getOrderById(Long id) {
+        return orderRepository.findOne(id);
+    }
+
+    @Override
+    public Order editOrder(Order order) {
+        return orderRepository.saveAndFlush(order);
+    }
 }

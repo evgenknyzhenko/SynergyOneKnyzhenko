@@ -5,7 +5,6 @@ export class Order {
     public date?: string,
     public status?: string,
     public price?: string,
-    public currency?: string,
-    public fkCustomerId?: number
+    public currency?: string
   ) {}
 }

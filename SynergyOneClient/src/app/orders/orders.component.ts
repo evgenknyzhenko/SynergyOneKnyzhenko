@@ -24,5 +24,4 @@ export class OrdersComponent implements OnInit {
         err => console.log('Orders were not read from database')
       );
   }
-
 }

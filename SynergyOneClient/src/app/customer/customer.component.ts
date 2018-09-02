@@ -12,14 +12,11 @@ export class CustomerComponent implements OnInit {
   customer: Customer;
   isEdit: boolean = false;
 
-
-
   constructor(private customerService: CustomerService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getCustomerById(this.route.snapshot.paramMap.get('id'));
   }
-
 
   private getCustomerById(id: string): void {
     this.customerService.getCustomerById(id)
@@ -28,10 +25,6 @@ export class CustomerComponent implements OnInit {
         err => console.log('Customer was not read from database')
       );
   }
-
-  /*onSelectEditCustomer() {
-    this.customerForEdit = this.customer;
-  }*/
 
   EditCustomer(): void {
     this.customerService.editCustomer(this.customer, this.route.snapshot.paramMap.get('id'))

@@ -11,15 +11,15 @@ import {CustomerComponent} from "./customer/customer.component";
 import {CustomerService} from "./service/customer-service";
 import {OrderService} from "./service/order-service";
 import { OrdersOfCustomerComponent } from './orders-of-customer/orders-of-customer.component';
+import { OrderComponent } from './order/order.component';
 
 const appRoutes: Routes = [
   {path: 'customers', component: CustomersComponent},
   {path: 'app', component: AppComponent},
   {path: 'customers/:id', component: CustomerComponent},
   {path: 'orders', component: OrdersComponent},
-  {path: 'customers/:id/orders', component:OrdersOfCustomerComponent}
-
-
+  {path: 'customers/:id/orders', component:OrdersOfCustomerComponent},
+  {path: 'orders/:id/confirm', component: OrderComponent}
 ];
 
 @NgModule({
@@ -28,7 +28,8 @@ const appRoutes: Routes = [
     CustomersComponent,
     OrdersComponent,
     CustomerComponent,
-    OrdersOfCustomerComponent
+    OrdersOfCustomerComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

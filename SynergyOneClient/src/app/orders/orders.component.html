@@ -1,7 +1,6 @@
-<p>
-  orders works!
-</p>
+<h3>Orders:</h3>
 
 <div *ngFor="let order of orders">
-  {{order.description}}
+  <a routerLink="/orders/{{order.id}}/confirm">{{order.description}}</a>
+  {{order.status}}
 </div>

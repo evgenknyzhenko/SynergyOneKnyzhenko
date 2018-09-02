@@ -1,11 +1,15 @@
 <h3>All customers</h3>
 
-<button (click)="isAddCustomer=true">Add customer</button>
+<button (click)="isAddCustomer=true" (dblclick)="isAddCustomer=false">Add customer</button>
 <div *ngIf="isAddCustomer==true">
-  First name:<input [(ngModel)]="addCustomer.firstName" placeholder="name"><br/>
+  First name:<input [(ngModel)]="addCustomer.firstName"><br/>
   Last name:<input [(ngModel)]="addCustomer.lastName"><br/>
   Birth date:<input [(ngModel)]="addCustomer.birthDate"><br/>
-  Sex:<input [(ngModel)]="addCustomer.sex"><br/>
+  Sex:
+  <select [(ngModel)]="addCustomer.sex">
+    <option selected>Mr</option>
+    <option>Ms</option>
+  </select><br/>
   Identification number:<input [(ngModel)]="addCustomer.identificationNumber"><br/>
   <button type="submit" (click)="AddNewCustomer()" onclick="location.href='/customers'">Add</button>
 </div>

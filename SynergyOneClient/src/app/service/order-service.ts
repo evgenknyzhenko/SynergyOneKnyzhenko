@@ -14,7 +14,6 @@ export class OrderService {
     );
   }
 
-
   getOrdersByCustomerId(id: string): Observable<Array<Order>> {
     return this.http.get<Array<Order>>(
       'http://localhost:8080/customers/'.concat(id).concat('/orders'),{observe: 'body'}
@@ -24,5 +23,15 @@ export class OrderService {
   addNewOrder(addOrder: Order, id: string): Observable<Order> {
     return this.http.post(
       'http://localhost:8080/customers/'.concat(id).concat('/orders'), addOrder);
+  }
+
+  getOrderById(id: string): Observable<Order> {
+    return this.http.get<Order>(
+      'http://localhost:8080/orders/'.concat(id),{observe: 'body'}
+    );
+  }
+
+  editOrder(order: Order, id: string):Observable<Order> {
+    return this.http.patch<Order>('http://localhost:8080/orders/'.concat(id).concat('/confirm'), order);
   }
 }

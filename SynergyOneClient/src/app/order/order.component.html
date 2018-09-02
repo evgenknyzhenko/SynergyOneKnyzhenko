@@ -1,0 +1,9 @@
+<h3>
+  Order details:
+</h3>
+
+<h5>Description: {{order.description}}</h5>
+<h5>Date: {{order.date}}</h5>
+<h5>Price: {{order.price}}</h5>
+<h5>Currency: {{order.currency}}</h5>
+<button (click)="confirmOrder()" onclick="location.href='/orders'">Confirm</button>
