@@ -1,6 +1,13 @@
 package app.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +23,8 @@ public class Customer {
     private String lastName;
     @Column(name = "BIRTH_DATE")
     private String birthDate;
-    @Column(name = "SEX")
-    private String sex;
+    @Column(name = "GENDER")
+    private String gender;
     @Column(name = "IDENTIFICATION_NUMBER")
     private Long identificationNumber;
 
@@ -56,12 +63,12 @@ public class Customer {
         this.birthDate = birthDate;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public Long getIdentificationNumber() {

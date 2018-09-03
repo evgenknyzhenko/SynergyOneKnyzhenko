@@ -4,7 +4,7 @@ export class Customer {
     public firstName?: string,
     public lastName?: string,
     public birthDate?: string,
-    public sex?: string,
+    public gender?: string,
     public identificationNumber?: number
   ){}
 }
