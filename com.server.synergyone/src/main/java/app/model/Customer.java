@@ -24,7 +24,7 @@ public class Customer {
     @Column(name = "BIRTH_DATE")
     private String birthDate;
     @Column(name = "GENDER")
-    private String gender;
+    private CustomerGender gender;
     @Column(name = "IDENTIFICATION_NUMBER")
     private Long identificationNumber;
 
@@ -63,11 +63,11 @@ public class Customer {
         this.birthDate = birthDate;
     }
 
-    public String getGender() {
+    public CustomerGender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(CustomerGender gender) {
         this.gender = gender;
     }
 

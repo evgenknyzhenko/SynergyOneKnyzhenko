@@ -2,6 +2,7 @@ package app.controller;
 
 import app.model.Customer;
 import app.model.Order;
+import app.model.OrderStatus;
 import app.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,7 +38,7 @@ public class OrderController {
     public Order addOrderByCustomerId(@PathVariable Long id, @RequestBody Order order) {
         Customer customer = customerController.getCustomerById(id);
         order.setCustomer(customer);
-        order.setStatus("Unconfirmed");
+        order.setStatus(OrderStatus.Unconfirmed);
         return orderService.addOrderByCustomerId(order);
     }
 
@@ -50,6 +51,7 @@ public class OrderController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(path = "/orders/{id}/confirm", method = RequestMethod.PATCH)
     public Order editOrder(@PathVariable Long id, @RequestBody Order order) {
+        order.setStatus(OrderStatus.Confirmed);
         order.setCustomer(getOrderById(id).getCustomer());
         return orderService.editOrder(order);
     }

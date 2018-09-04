@@ -26,7 +26,6 @@ export class OrderComponent implements OnInit {
   }
 
   confirmOrder() {
-    this.order.status = 'Confirmed';
     this.orderService.editOrder(this.order, this.route.snapshot.paramMap.get('id'))
       .subscribe(
         resp => this.order = new Order(),

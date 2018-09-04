@@ -24,7 +24,7 @@ public class Order {
     @Column(name = "DATE")
     private String date;
     @Column(name = "STATUS")
-    private String status;
+    private OrderStatus status;
     @Column(name = "PRICE")
     private double price;
     @Column(name = "CURRENCY")
@@ -59,11 +59,11 @@ public class Order {
         this.date = date;
     }
 
-    public String getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 
@@ -91,16 +91,4 @@ public class Order {
         this.customer = customer;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", date='" + date + '\'' +
-                ", status='" + status + '\'' +
-                ", price=" + price +
-                ", currency='" + currency + '\'' +
-                ", customer=" + customer +
-                '}';
-    }
 }
